@@ -22,20 +22,8 @@ provider:
   region: ap-southeast-2
 
 # you can add statements to the Lambda function's IAM Role here
-#  iamRoleStatements:
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:ListBucket"
-#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:PutObject"
-#      Resource:
-#        Fn::Join:
-#          - ""
-#          - - "arn:aws:s3:::"
-#            - "Ref" : "ServerlessDeploymentBucket"
-#            - "/*"
+iamRoleStatements:
+  $ref: ./iamRoleStatements.json
 
 # you can define service wide environment variables here
 #  environment:
@@ -57,9 +45,9 @@ functions:
       - s3: 
           bucket: csv-ingestion
           event: s3:ObjectCreated:*
-          rules:
-            - prefix: csv/
-            - suffix: .csv
+          # rules:
+          #   - prefix: csv/
+          #   - suffix: .csv
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
