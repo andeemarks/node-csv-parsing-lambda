@@ -1,23 +1,11 @@
 [
-  {
-    "Effect": "Allow",
-    "Action": [
-      "lambda:InvokeFunction"
-    ],
-    "Resource": "*"
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "dynamodb:*"
-    ],
-    "Resource": "*"
-  },
-  {
-    "Effect": "Allow",
-    "Action": [
-      "s3:*"
-    ],
-    "Resource": "*"
-  }
+    {
+        "Action": [
+            "s3:GetObject"
+        ],
+        "Resource": [
+            "*"
+        ],
+        "Effect": "Allow"
+    }
 ]
